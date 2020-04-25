@@ -34,13 +34,13 @@ mesageInputField.addEventListener('keypress', (evt) => {
 });
 
 clearButton.addEventListener('click', () => {
-  localStorage.removeItem('legends');
+  localStorage.removeItem('messagesHistory');
   window.location.reload();
 });
 
 try {
-  if (localStorage.legends) {
-    const loadStorage = JSON.parse(localStorage.legends);
+  if (localStorage.messagesHistory) {
+    const loadStorage = JSON.parse(localStorage.messagesHistory);
     for (const item of loadStorage) {
       messageGenerator.loadMessage(item.msg, item.geo, item.date);
     }

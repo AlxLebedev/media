@@ -50,7 +50,7 @@ export default class MessageGenerator {
     messagesInputField.value = '';
 
     timelineMessages.push({ msg: messageElement, geo: coords, date: elementDate });
-    localStorage.setItem('legends', JSON.stringify(timelineMessages));
+    localStorage.setItem('messagesHistory', JSON.stringify(timelineMessages));
   }
 
   loadMessage(message, coords, date) {
@@ -66,6 +66,6 @@ export default class MessageGenerator {
     timelineMessagesField.prepend(newMessage);
     messagesInputField.value = '';
 
-    timelineMessages.push({ message, coords, date });
+    timelineMessages.push({ msg: message, geo: coords, date: date });
   }
 }
