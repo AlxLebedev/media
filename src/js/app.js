@@ -29,7 +29,6 @@ popupOkButton.addEventListener('click', () => {
 
 mesageInputField.addEventListener('keypress', (evt) => {
   if (evt.key === 'Enter') {
-    console.log(mesageInputField.value);
     messageGenerator.create(`<p>${mesageInputField.value}</p>`, popup);
   }
 });
