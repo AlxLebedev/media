@@ -7,7 +7,7 @@ const messagesInputField = document.querySelector('#input-field');
 let coordinates = null;
 const timelineMessages = [];
 
-export default class MsgAddGeo {
+export default class MessageGenerator {
   // constructor() {
   //   this.timelineMessagesField = document.querySelector('.timeline-messages-field');
   //   this.messagesInputField = document.querySelector('#input-field');
@@ -15,7 +15,7 @@ export default class MsgAddGeo {
   //   this.timelineMessages = [];
   // }
 
-  async messageAddGEO(msgObj, popup) {
+  async create(msgObj, popup) {
     this.elPopup = document.querySelector('.popup');
     this.elPopupInput = document.querySelector('.popup-inp');
     this.elPopupCancel = document.querySelector('.popup-cancel');

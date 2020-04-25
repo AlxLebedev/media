@@ -1,6 +1,6 @@
 import Popup from './Popup';
 import AVRecorder from './AVRecorder';
-import MessageAddGEO from './MessageAddGEO';
+import MessageGenerator from './MessageGenerator';
 
 const popup = new Popup();
 popup.init();
@@ -8,7 +8,7 @@ popup.init();
 const recorder = new AVRecorder(popup);
 recorder.init();
 
-const cmessageAddGeo = new MessageAddGEO();
+const messageGenerator = new MessageGenerator();
 const popupWindow = document.querySelector('.popup');
 const popupInputField = document.querySelector('.popup-inp');
 const popupCancelButton = document.querySelector('.popup-cancel');
@@ -30,7 +30,7 @@ popupOkButton.addEventListener('click', () => {
 mesageInputField.addEventListener('keypress', (evt) => {
   if (evt.key === 'Enter') {
     console.log(mesageInputField.value);
-    cmessageAddGeo.messageAddGEO(`<p>${mesageInputField.value}</p>`, popup);
+    messageGenerator.create(`<p>${mesageInputField.value}</p>`, popup);
   }
 });
 
@@ -43,7 +43,7 @@ try {
   if (localStorage.legends) {
     const loadStorage = JSON.parse(localStorage.legends);
     for (const item of loadStorage) {
-      cmessageAddGeo.loadMessage(item.msg, item.geo, item.data);
+      messageGenerator.loadMessage(item.msg, item.geo, item.data);
     }
   }
 } catch (e) {

@@ -1,10 +1,10 @@
 /* eslint-disable class-methods-use-this */
-import MessageAddGEO from './MessageAddGEO';
+import MessageGenerator from './MessageGenerator';
 
 export default class AVRecorder {
   constructor(popup) {
     this.popup = popup;
-    this.cmessageAddGeo = new MessageAddGEO();
+    this.messageGenerator = new MessageGenerator();
   }
 
   init() {
@@ -92,7 +92,7 @@ export default class AVRecorder {
           fileReader.onload = () => {
             mediaElement.src = fileReader.result;
             mediaElement.controls = true;
-            this.cmessageAddGeo.messageAddGEO(mediaElement.outerHTML, this.popup);
+            this.messageGenerator.create(mediaElement.outerHTML, this.popup);
           };
         }
         if (recVideo) {
