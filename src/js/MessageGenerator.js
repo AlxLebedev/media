@@ -49,7 +49,7 @@ export default class MessageGenerator {
     timelineMessagesField.prepend(newMessage);
     messagesInputField.value = '';
 
-    timelineMessages.push({ msg: messageElement, geo: coords, data: elementDate });
+    timelineMessages.push({ msg: messageElement, geo: coords, date: elementDate });
     localStorage.setItem('legends', JSON.stringify(timelineMessages));
   }
 

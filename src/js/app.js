@@ -43,7 +43,7 @@ try {
   if (localStorage.legends) {
     const loadStorage = JSON.parse(localStorage.legends);
     for (const item of loadStorage) {
-      messageGenerator.loadMessage(item.msg, item.geo, item.data);
+      messageGenerator.loadMessage(item.msg, item.geo, item.date);
     }
   }
 } catch (e) {
