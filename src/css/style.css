@@ -50,7 +50,7 @@
     background-color: #ffffff;
 }
 
-.l-block {
+.item-message-container {
   width: 100%;
 }
 
@@ -65,7 +65,7 @@ video, audio {
   left: 20px;
 }
 
-.r-block {
+.item-message-date-container {
   width: 161px;
   margin-left: 15px;
 }

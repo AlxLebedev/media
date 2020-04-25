@@ -35,21 +35,21 @@ export default class MsgAddGeo {
     }
   }
 
-  addMessage(msgObj, itemGeo) {
-    const itemDate = getDate(new Date());
-    const elItem = document.createElement('div');
-    elItem.className = 'item-msg';
-    elItem.innerHTML = `
-    <div class="l-block">
-    ${msgObj}
-    <div class="geo-tef">${itemGeo}</div>
+  addMessage(messageElement, coords) {
+    const elementDate = getDate(new Date());
+    const newMessage = document.createElement('div');
+    newMessage.className = 'item-msg';
+    newMessage.innerHTML = `
+    <div class="item-message-container">
+    ${messageElement}
+    <div class="item-message-coords">${coords}</div>
     </div>
-    <div class="r-block">${itemDate}</div>
+    <div class="item-message-date-container">${elementDate}</div>
     `;
-    timelineMessagesField.prepend(elItem);
+    timelineMessagesField.prepend(newMessage);
     messagesInputField.value = '';
 
-    timelineMessages.push({ msg: msgObj, geo: itemGeo, data: itemDate });
+    timelineMessages.push({ msg: messageElement, geo: coords, data: elementDate });
     localStorage.setItem('legends', JSON.stringify(timelineMessages));
   }
 
@@ -57,11 +57,11 @@ export default class MsgAddGeo {
     const newMessage = document.createElement('div');
     newMessage.className = 'item-msg';
     newMessage.innerHTML = `
-    <div class="l-block">
+    <div class="item-message-container">
     ${message}
-    <div class="geo-tef">${coords}</div>
+    <div class="item-message-coords">${coords}</div>
     </div>
-    <div class="r-block">${date}</div>
+    <div class="item-message-date-container">${date}</div>
     `;
     timelineMessagesField.prepend(newMessage);
     messagesInputField.value = '';
