@@ -1,6 +1,5 @@
 * {
   box-sizing: border-box;
-  
 }
 
 .timeline-container {
@@ -40,14 +39,14 @@
 
 .item-msg::after {
   content: '';
-    width: 30px;
-    height: 30px;
-    border: 1px solid;
-    border-radius: 30px;
-    position: absolute;
-    left: -50px;
-    top: 10px;
-    background-color: #ffffff;
+  width: 30px;
+  height: 30px;
+  border: 1px solid;
+  border-radius: 30px;
+  position: absolute;
+  left: -50px;
+  top: 10px;
+  background-color: #ffffff;
 }
 
 .item-message-container {

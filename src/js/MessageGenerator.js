@@ -1,28 +1,23 @@
-/* eslint-disable class-methods-use-this */
 import getGeoposition from './getGeoposition';
 import getDate from './getDate';
 
-const timelineMessagesField = document.querySelector('.timeline-messages-field');
-const messagesInputField = document.querySelector('#input-field');
-let coordinates = null;
 const timelineMessages = [];
 
 export default class MessageGenerator {
-  // constructor() {
-  //   this.timelineMessagesField = document.querySelector('.timeline-messages-field');
-  //   this.messagesInputField = document.querySelector('#input-field');
-  //   this.coordinates = null;
-  //   this.timelineMessages = [];
-  // }
+  constructor() {
+    this.timelineMessagesField = document.querySelector('.timeline-messages-field');
+    this.messagesInputField = document.querySelector('#input-field');
+    this.coordinates = null;
+  }
 
   async create(msgObj, popup) {
     this.elPopup = document.querySelector('.popup');
     this.elPopupInput = document.querySelector('.popup-inp');
     this.elPopupCancel = document.querySelector('.popup-cancel');
-    if (!coordinates) {
+    if (!this.coordinates) {
       try {
-        coordinates = await getGeoposition(popup);
-        this.addMessage(msgObj, coordinates);
+        this.coordinates = await getGeoposition(popup);
+        this.addMessage(msgObj, this.coordinates);
 
         this.elPopup.classList.add('hidden');
         this.elPopupInput.classList.add('hidden');
@@ -31,7 +26,7 @@ export default class MessageGenerator {
         console.log('error', e);
       }
     } else {
-      this.addMessage(msgObj, coordinates);
+      this.addMessage(msgObj, this.coordinates);
     }
   }
 
@@ -46,8 +41,8 @@ export default class MessageGenerator {
     </div>
     <div class="item-message-date-container">${elementDate}</div>
     `;
-    timelineMessagesField.prepend(newMessage);
-    messagesInputField.value = '';
+    this.timelineMessagesField.prepend(newMessage);
+    this.messagesInputField.value = '';
 
     timelineMessages.push({ msg: messageElement, geo: coords, date: elementDate });
     localStorage.setItem('messagesHistory', JSON.stringify(timelineMessages));
@@ -63,9 +58,9 @@ export default class MessageGenerator {
     </div>
     <div class="item-message-date-container">${date}</div>
     `;
-    timelineMessagesField.prepend(newMessage);
-    messagesInputField.value = '';
+    this.timelineMessagesField.prepend(newMessage);
+    this.messagesInputField.value = '';
 
-    timelineMessages.push({ msg: message, geo: coords, date: date });
+    timelineMessages.push({ msg: message, geo: coords, date });
   }
 }

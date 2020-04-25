@@ -1,4 +1,3 @@
-/* eslint-disable class-methods-use-this */
 import MessageGenerator from './MessageGenerator';
 
 export default class AVRecorder {
@@ -121,6 +120,7 @@ export default class AVRecorder {
     }
   }
 
+  /* eslint-disable class-methods-use-this */
   timer(seconds) {
     const min = Math.floor(seconds / 60);
     const sec = (seconds - (min * 60));
