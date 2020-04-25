@@ -53,19 +53,19 @@ export default class MsgAddGeo {
     localStorage.setItem('legends', JSON.stringify(timelineMessages));
   }
 
-  loadMessage(msg, geo, data) {
-    const elItem = document.createElement('div');
-    elItem.className = 'item-msg';
-    elItem.innerHTML = `
+  loadMessage(message, coords, date) {
+    const newMessage = document.createElement('div');
+    newMessage.className = 'item-msg';
+    newMessage.innerHTML = `
     <div class="l-block">
-    ${msg}
-    <div class="geo-tef">${geo}</div>
+    ${message}
+    <div class="geo-tef">${coords}</div>
     </div>
-    <div class="r-block">${data}</div>
+    <div class="r-block">${date}</div>
     `;
-    timelineMessagesField.prepend(elItem);
+    timelineMessagesField.prepend(newMessage);
     messagesInputField.value = '';
 
-    timelineMessages.push({ msg, geo, data });
+    timelineMessages.push({ message, coords, date });
   }
 }
